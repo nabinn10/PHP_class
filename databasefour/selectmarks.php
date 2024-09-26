@@ -12,14 +12,22 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Correct query to select data from marks using JOIN
+// Correct query to select data from marks using JOIN with where condition
 $qry = "SELECT student.name AS student_name, subjects.name AS subject_name, marks.marks_obtained, subjects.full_marks
         FROM marks
         JOIN student ON marks.std_id = student.id
-        JOIN subjects ON marks.sub_id = subjects.id";
+        JOIN subjects ON marks.sub_id = subjects.id
+        WHERE student.id = 1";
 
-// Run query
-$result = $conn->query($qry);
+//average marks of a aparticular syudent
+$qry2 = "SELECT student.name AS student_name, AVG(marks.marks_obtained) AS average_marks
+        FROM marks
+        JOIN student ON marks.std_id = student.id
+        WHERE student.id = 1";
+
+
+
+
 
 // Check if there are any results
 if ($result->num_rows > 0) {
@@ -36,6 +44,7 @@ if ($result->num_rows > 0) {
 } else {
     echo "0 results";
 }
+
 
 // Close connection
 $conn->close();
