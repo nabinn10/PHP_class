@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jquery example</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <h1>jQuery Example</h1>
+    <p id="demo">Hello World</p>
+    <button id="btn">Click me</button>
+    <script>
+        $(document).ready(function(){
+            $("#btn").click(function(){
+                $("#demo").text("Hello jQuery");
+            });
+        });
+        // $('#demo').slideToggle();
+        $('#demo').css('color', 'red');
+        $('#demo').css('font-size', '20px');
+        $('#demo').css('background-color', 'yellow');
+        $('#demo').css('padding', '20px');
+        $('#demo').css('border', '1px solid black');
+        $('#demo').css('border-radius', '5px');
+        $('#demo').css('margin', '10px');
+        $('#demo').css('text-align', 'center');
+
+
+
+        // fade out
+        // $('#btn').click(function(){
+        //     $('#demo').fadeOut();
+        // });
+        // $('#demo').animate({fontSize: "30px"}, 2000);
+        $('#demo').animate({fontSize: "30px", opacity :0.5},"slow");
+
+    </script>
+    
+</body>
+</html>
